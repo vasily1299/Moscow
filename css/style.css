@@ -6,20 +6,26 @@
 	src: url(/fonts/Roboto/Roboto-Light.ttf);
 	src: url(/fonts/Roboto/Roboto-Bold.ttf);
 	src: url(/fonts/Roboto/Roboto-Black.ttf);
-}
-
-@font-face{
-	font-family: 'Red Hat Text';
-	src: url(/fonts/Red_Hat_Text/static/RedHatText-Bold.ttf);
-	src: url(/fonts/Red_Hat_Text/static/RedHatText-Light.ttf);
-	src: url(/fonts/Red_Hat_Text/static/RedHatText-Medium.ttf);
-	src: url(/fonts/Red_Hat_Text/static/RedHatText-Regular.ttf);
-	src: url(/fonts/Red_Hat_Text/static/RedHatText-SemiBold.ttf);
 } */
+@font-face {
+  font-family: "Red Hat Text";
+  font-style: medium;
+  font-weight: 500;
 
+  /* Браузер сначала попробует найти шрифт локально */
+  src: local("Red Hat Text"),
+	   url("/fonts/AnyConv.com__RedHatText-Medium.woff2") format("woff2"),
+       /* Если браузер не поддерживает woff2, загрузит woff */
+       url("/fonts/RedHatText-Medium.woff") format("woff");
+}
+/* @font-face{
+	font-family: 'Red Hat Text';
+	src: url(/fonts/RedHatText-Bold.woff);
+}
+ */
 body {
   font-family: "Red Hat Text", sans-serif;
-  font-family: "Roboto", sans-serif;
+  /* font-family: "Roboto", sans-serif; */
   color: #000000;
   background-color: #ffffff;
   font-size: 24px;
@@ -84,7 +90,7 @@ body {
 }
 
 .title {
-  font-family: "Red Hat Text";
+  font-family: "Red Hat Text Bold";
   font-weight: 500;
   font-size: 52px;
   line-height: 1.2;
@@ -276,7 +282,7 @@ body {
   font-size: 34px;
   margin: 0 auto 24px;
   text-align: center;
-  font-family: "Red Hat Text";
+  font-family: "Red Hat Text Bold";
   text-align: center;
   display: block;
   max-width: 450px;
@@ -317,6 +323,7 @@ body {
 .hero-container{
 	display: flex;
 	justify-content: end;
+	align-items: flex-end;
 }
 .hero {
   min-height: 100vh;
@@ -356,29 +363,31 @@ body {
   z-index: 2;
   max-width: 770px;
   position: relative;
-  margin-right: 0;
   display: flex;
   flex-direction: column;
-  justify-content:space-between;
   align-items:flex-end;
-  height: 100%;
+  max-height: 620px;
 }
 
 .hero__title {
+	font-family: "Red Hat Text";
   font-size: 64px;
   line-height: 1;
-  font-family: "Red Hat Text";
+  
   text-align: right;
-  letter-spacing: -3px;
+  /* letter-spacing: -3px; */
   margin-bottom: 30px;
+  max-width:600px;
 }
 
 .hero__subtitle {
 	font-family: "Red Hat Text";
   margin-top: 20px;
-  letter-spacing: -1px;
-  font-size: 52px;
+  font-size: 32px;
   line-height: 1.2;
+  margin-bottom: 57px;
+  text-align: right;
+  max-width: 600px;
 }
 
 /* * calc */
@@ -904,17 +913,33 @@ body {
 }
 
 /* * services */
-
+.services{
+	background-color: #ff864485;
+}
+.services-container{
+	display: flex;
+	flex-direction: column;
+}
+.services-title{
+	text-align: center;
+	color:#AC0101;
+	margin-top: 60px;
+	margin-bottom: 115px;
+}
 .services__items {
   display: grid;
-  gap: 30px;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 40px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  margin-bottom: 98px;
 }
 
 .services__item {
+	background-color:#ffffff;
   padding: 24px 36px;
   border-radius: 4px;
   border: 1px solid #eeeeee;
+  border-radius: 40px;
+box-shadow: 3px 10px 6px 3px rgba(2, 2, 2, 0.10);
 }
 
 .services__decor {
@@ -929,15 +954,18 @@ body {
 
 .services-card {
   display: flex;
+  flex-direction: column-reverse;
+  text-align: center;
+  
 }
 
 .services-card__content {
-  margin-right: 18px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   max-width: 250px;
   width: 100%;
+  font-size: 20px;
 }
 
 .services-card__subtitle {
@@ -962,11 +990,58 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
 }
+.button, .services-button{
+	margin: 0 auto;
+	padding: 25px 65px;
+	color: #FFF;
+font-family: Roboto;
+font-style: normal;
+font-weight: 800;
+line-height: normal;
+font-size: 24px;
+border-radius: 90px;
+background-color: var(--red, #AC0101);
+margin-bottom: 79px;
+}
+.services-button{
+	font-size: 40px;
+}
 
-/* * contacts */
+
+/** Reasons */
+
+.reasons-title{
+	color: #AC0101;
+	text-align: center;
+	margin-top: 98px;
+	margin-bottom: 97px;
+}
+.reasons__items{
+	display: flex;	
+	justify-content: space-between;
+	margin-bottom: 165px;
+}
+
+/** feedback */
+.feedback-title{
+	text-align: center;
+	color:#AC0101;
+	margin-top: 102px;
+}
+.about__swiper{
+	margin-bottom: 52px;
+}
+
+/** map */
+.map{
+	min-height:517px;
+	background-image: url('/img/map.jpg')
+}
+/** contacts */
 
 .contacts {
   padding-bottom: 90px;
+  background-image: url('../img/bg2.jpg')
 }
 
 .contacts__wrapper {
@@ -1116,7 +1191,7 @@ body {
 /* * footer */
 
 .footer {
-  background-color: rgba(217, 217, 217, 0.8);
+  background-color: #AC0101;
   padding: 40px 0 70px;
   line-height: 1.3;
   letter-spacing: 0.5px;
