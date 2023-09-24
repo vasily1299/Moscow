@@ -1035,7 +1035,7 @@ margin-bottom: 79px;
 /** map */
 .map{
 	min-height:517px;
-	background-image: url('/img/map.jpg')
+	background-image: url('../img/map.jpg')
 }
 /** contacts */
 
